@@ -58,9 +58,8 @@ const views: ReadonlyArray<{
   },
 ];
 
-export default function RelationshipMap() {
-  const [viewIndex, setViewIndex] = useState(1);
-  const [selected, setSelected] = useState<NodeId | null>(null);
+export default function RelationshipMap({ chapter, revision }: { chapter: number; revision: number }) {
+  const [interaction, setInteraction] = useState<{ revision: number; view: number; node: NodeId | null } | null>(null);
   const [replay, setReplay] = useState(0);
   const [entered, setEntered] = useState(false);
   const board = useRef<HTMLElement>(null);
@@ -76,6 +75,9 @@ export default function RelationshipMap() {
     return () => observer.disconnect();
   }, []);
   const patternId = useId();
+  const current = interaction?.revision === revision ? interaction : null;
+  const viewIndex = current?.view ?? chapter;
+  const selected = current?.node ?? null;
   const view = views[viewIndex];
   const activeNode = nodes.find((node) => node.id === selected);
   const traceKey = `${viewIndex}-${selected ?? 'overview'}-${replay}`;
@@ -102,7 +104,7 @@ export default function RelationshipMap() {
             key={item.label}
             type="button"
             aria-pressed={viewIndex === index}
-            onClick={() => { setViewIndex(index); setSelected(null); setReplay((value) => value + 1); }}
+            onClick={() => { setInteraction({ revision, view: index, node: null }); setReplay((value) => value + 1); }}
           >
             {item.label}
           </button>
@@ -141,7 +143,7 @@ export default function RelationshipMap() {
             style={{ left: `${x}%`, top: `${y}%` }}
             data-highlighted={connected.includes(id)}
             aria-pressed={selected === id}
-            onClick={() => setSelected((current) => current === id ? null : id)}
+            onClick={() => setInteraction({ revision, view: viewIndex, node: selected === id ? null : id })}
           >
             <span className="node-mark" aria-hidden="true" data-column={x} />{label}
             {connected.includes(id) && <i key={traceKey} className="node-arrival" aria-hidden="true" style={{ animationDelay: `${x === 17 ? 0 : x === 50 ? 680 : 1380}ms` }} />}
@@ -150,7 +152,7 @@ export default function RelationshipMap() {
       </div>
       <div className="map-reading">
         <span className="reading-marker" aria-hidden="true" />
-        <div className="reading-body" aria-live="polite" aria-atomic="true">
+        <div className="reading-body" aria-live={current ? 'polite' : 'off'} aria-atomic="true">
           <div key={activeNode?.id ?? view.label} className="reading-text">
             <p className="reading-title">{activeNode?.label ?? view.title}</p>
             <p>{activeNode?.description ?? view.description}</p>

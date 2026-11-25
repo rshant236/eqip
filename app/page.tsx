@@ -1,15 +1,18 @@
 import { caseStudies, demoUrl, evidenceQuestions, outcomes, scenarios } from './content';
-import RelationshipMap from './relationship-map';
+import ChangeStory from './change-story';
+import EstateScene from './estate-scene';
 import SiteFooter from './site-footer';
 import SiteHeader from './site-header';
+import './homepage.css';
 
 export default function Home() {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to content</a>
       <SiteHeader />
-      <main id="main-content">
+      <main id="main-content" className="homepage">
         <section className="hero" aria-labelledby="hero-title">
+          <EstateScene />
           <div className="container hero-grid">
             <div className="hero-copy">
               <h1 id="hero-title"><span className="hero-phrase">Know your</span><br className="hero-break" /> <span className="hero-phrase">software before</span><br className="hero-break" /> <span className="hero-phrase">it becomes a risk.</span></h1>
@@ -19,7 +22,6 @@ export default function Home() {
                 <a href="#evidence" className="button outline">Explore the Evidence</a>
               </div>
             </div>
-            <RelationshipMap />
           </div>
           <div className="container hero-foot">
             <p>Software intelligence for organisations that cannot afford to guess.</p>
@@ -35,6 +37,7 @@ export default function Home() {
               <p>That is manageable—until a transformation, migration, acquisition, or rapid release asks a simple question:</p>
               <p className="pull-question">What will this change affect?</p>
               <p>For too many organisations, the honest answer is: we do not know yet.</p>
+              <a className="text-link trace-link" href="#what-we-see">Trace a change</a>
             </div>
           </div>
         </section>
@@ -48,11 +51,7 @@ export default function Home() {
                 <p>It gives leaders and delivery teams a clearer basis for decisions that are usually made under pressure.</p>
               </div>
             </div>
-            <ol className="decision-flow" aria-label="From software evidence to a change decision">
-              <li><strong>What exists</strong><span>Applications, rules, and records</span></li>
-              <li><strong>What connects</strong><span>Dependencies and business journeys</span></li>
-              <li><strong>What changes</strong><span>What is affected and what to verify</span></li>
-            </ol>
+            <ChangeStory />
             <ul id="outcomes" className="outcome-list" aria-label="What EQIP makes visible">
               {outcomes.map(({ title, description }) => (
                 <li key={title}>
