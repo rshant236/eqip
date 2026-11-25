@@ -6,14 +6,14 @@ import '@fontsource-variable/jetbrains-mono';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: { default: 'EQIP | Enterprise Software Intelligence', template: '%s | EQIP' },
-  description: 'Understand what your software does, preserve the rules your business depends on, and make consequential changes with evidence.',
+  title: { default: 'EQIP | Enterprise Business Intelligence', template: '%s | EQIP' },
+  description: 'Understand what your business does, preserve the rules your business depends on, and make consequential changes with evidence.',
   icons: { icon: '/eqip-symbol.png' },
   openGraph: {
     type: 'website',
     siteName: 'EQIP',
     title: 'Know your Business before it becomes a risk.',
-    description: 'Software intelligence for organisations that cannot afford to guess.',
+    description: 'Business intelligence for organisations that cannot afford to guess.',
   },
 };
 
