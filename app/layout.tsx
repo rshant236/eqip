@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'EQIP',
-    title: 'Know your software before it becomes a risk.',
+    title: 'Know your Business before it becomes a risk.',
     description: 'Software intelligence for organisations that cannot afford to guess.',
   },
 };

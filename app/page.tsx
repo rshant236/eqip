@@ -15,7 +15,7 @@ export default function Home() {
           <EstateScene />
           <div className="container hero-grid">
             <div className="hero-copy">
-              <h1 id="hero-title"><span className="hero-phrase">Know your</span><br className="hero-break" /> <span className="hero-phrase">software before</span><br className="hero-break" /> <span className="hero-phrase">it becomes a risk.</span></h1>
+              <h1 id="hero-title"><span className="hero-phrase">Know your</span><br className="hero-break" /> <span className="hero-phrase">Business before</span><br className="hero-break" /> <span className="hero-phrase">it becomes a risk.</span></h1>
               <p>Your organisation’s software holds years of business decisions, customer commitments, rules, and hard-won knowledge. EQIP helps you see it clearly—so you can modernise, change, validate, and move forward with confidence.</p>
               <div className="actions">
                 <a href="#contact" className="button primary">Talk to an Expert</a>
