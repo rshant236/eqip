@@ -12,8 +12,8 @@ export default function SiteHeader() {
     const observer = new IntersectionObserver((entries) => {
       const current = entries.find((entry) => entry.isIntersecting);
       if (!current) return;
-      const section = current.target as HTMLElement;
-      setActiveLink(`/#${section.dataset.navSection ?? section.id}`);
+      const id = current.target.id;
+      setActiveLink(id === 'field-evidence' ? '/#evidence' : `/#${id}`);
     }, { rootMargin: '-18% 0px -78% 0px' });
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();

@@ -1,8 +1,6 @@
 import { caseStudies, demoUrl, evidenceQuestions, outcomes, scenarios } from './content';
 import ChangeStory from './change-story';
 import EstateScene from './estate-scene';
-import ResponsiveDisclosure from './responsive-disclosure';
-import RevealHeading from './reveal-heading';
 import SiteFooter from './site-footer';
 import SiteHeader from './site-header';
 import './homepage.css';
@@ -33,43 +31,31 @@ export default function Home() {
 
         <section id="the-problem" className="section paper problem" aria-labelledby="problem-title">
           <div className="container split">
-            <RevealHeading id="problem-title" phrases={['Your software remembers', 'more than your documentation does.']} />
+            <h2 id="problem-title">Your software remembers more than your documentation does.</h2>
             <div className="section-copy">
-              <ResponsiveDisclosure label="Why the impact is hard to see">
-                <p>Across every enterprise are applications that have outlived their original teams, systems connected in ways no diagram captures, and business rules buried in code, processes, and people’s memory.</p>
-                <p>That is manageable—until a transformation, migration, acquisition, or rapid release asks a simple question:</p>
-              </ResponsiveDisclosure>
+              <p>Across every enterprise are applications that have outlived their original teams, systems connected in ways no diagram captures, and business rules buried in code, processes, and people’s memory.</p>
+              <p>That is manageable—until a transformation, migration, acquisition, or rapid release asks a simple question:</p>
               <p className="pull-question">What will this change affect?</p>
               <p>For too many organisations, the honest answer is: we do not know yet.</p>
-              <a className="text-link trace-link" href="#change-map">Trace a change</a>
+              <a className="text-link trace-link" href="#what-we-see">Trace a change</a>
             </div>
           </div>
         </section>
 
         <section id="what-we-see" className="section visibility" aria-labelledby="visibility-title">
-          <div className="container split">
-            <h2 id="visibility-title">Clarity before change.<br /> Confidence after it.</h2>
-            <div className="section-copy">
-              <p>EQIP brings together the evidence already distributed across your software estate: how applications behave, where dependencies sit, what business rules matter, and where change creates risk.</p>
-              <p>It gives leaders and delivery teams a clearer basis for decisions that are usually made under pressure.</p>
+          <div className="container">
+            <div className="split">
+              <h2 id="visibility-title">Clarity before change.<br /> Confidence after it.</h2>
+              <div className="section-copy">
+                <p>EQIP brings together the evidence already distributed across your software estate: how applications behave, where dependencies sit, what business rules matter, and where change creates risk.</p>
+                <p>It gives leaders and delivery teams a clearer basis for decisions that are usually made under pressure.</p>
+              </div>
             </div>
-          </div>
-        </section>
-
-        <section id="change-map" className="section visibility story-section" data-nav-section="what-we-see" aria-labelledby="story-title">
-          <div className="container">
-            <h2 id="story-title">Trace a pricing change.</h2>
             <ChangeStory />
-          </div>
-        </section>
-
-        <section id="outcomes" className="section visibility outcomes-section" data-nav-section="what-we-see" aria-labelledby="outcomes-title">
-          <div className="container">
-            <h2 id="outcomes-title">What EQIP makes visible</h2>
-            <ul className="outcome-list">
+            <ul id="outcomes" className="outcome-list" aria-label="What EQIP makes visible">
               {outcomes.map(({ title, description }) => (
                 <li key={title}>
-                  <ResponsiveDisclosure label={title} heading><p>{description}</p></ResponsiveDisclosure>
+                  <h3>{title}</h3><p>{description}</p>
                 </li>
               ))}
             </ul>
@@ -77,20 +63,15 @@ export default function Home() {
         </section>
 
         <section id="where-it-matters" className="section paper scenarios" aria-labelledby="scenarios-title">
-          <div className="container split">
+          <div className="container">
             <h2 id="scenarios-title">When the cost of<br /> being wrong is high.</h2>
             <div className="scenario-grid">
               {scenarios.map(({ title, description, question }) => (
-                <details key={title} name="eqip-scenarios" className="scenario">
-                  <summary>
-                    <span>{title}</span>
-                    <span className="toggle-mark" aria-hidden="true" />
-                  </summary>
-                  <div className="scenario-description">
-                    <p>{description}</p>
-                    <p className="scenario-question">{question}</p>
-                  </div>
-                </details>
+                <article key={title} className="scenario">
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                  <p className="scenario-question">{question}</p>
+                </article>
               ))}
             </div>
           </div>
@@ -101,16 +82,16 @@ export default function Home() {
             <div className="split evidence-intro">
               <div>
                 <h2 id="evidence-title">Confidence should be visible.</h2>
-                <ResponsiveDisclosure label="How EQIP traces evidence">
-                  <p>EQIP does not ask teams to rely on a black box or a reassuring dashboard. It helps create a traceable view of what is known, what has changed, what has been validated, and where attention is still needed.</p>
-                </ResponsiveDisclosure>
+                <p>EQIP does not ask teams to rely on a black box or a reassuring dashboard. It helps create a traceable view of what is known, what has changed, what has been validated, and where attention is still needed.</p>
                 <a className="text-link field-link" href="#field-evidence">Evidence from the field</a>
               </div>
               <div>
                 <p className="evidence-lead">The result is a conversation grounded in evidence:</p>
-                <ul className="evidence-list">
-                  {evidenceQuestions.map((question) => <li key={question}>{question}</li>)}
-                </ul>
+                <dl className="evidence-list">
+                  {evidenceQuestions.map(({ label, question }) => (
+                    <div key={label}><dt>{label}</dt><dd>{question}</dd></div>
+                  ))}
+                </dl>
               </div>
             </div>
           </div>
@@ -127,12 +108,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="field-evidence" className="section paper field-notes" data-nav-section="evidence" aria-labelledby="field-title">
-          <div className="container">
-            <RevealHeading id="field-title" phrases={['The work speaks', 'for itself.']} />
+        <section id="field-evidence" className="section paper field-notes" aria-labelledby="field-title">
+          <div className="container split">
+            <h2 id="field-title">The work speaks for itself.</h2>
             <div className="case-list">
               {caseStudies.map(({ title, challenge, clarity, outcome }) => (
-                <details className="case-study" name="eqip-case-studies" key={title}>
+                <details className="case-study" key={title}>
                   <summary>
                     <span>{title}<small><span className="open-label">Read the case study</span><span className="close-label">Close the case study</span></small></span>
                     <span className="toggle-mark" aria-hidden="true" />
@@ -150,7 +131,7 @@ export default function Home() {
 
         <section id="contact" className="section closing" aria-labelledby="contact-title">
           <div className="container closing-inner">
-            <RevealHeading id="contact-title" phrases={['The next change should', 'not depend on what someone', 'happens to remember.']} accentLast />
+            <h2 id="contact-title">The next change should not depend on what someone happens to remember.</h2>
             <p>Bring the intelligence already inside your software into view. Understand what matters, preserve what works, and change with confidence.</p>
             <div className="actions">
               <a className="button primary" href={demoUrl}>Talk to an Expert</a>

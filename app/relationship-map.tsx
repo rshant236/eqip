@@ -95,7 +95,7 @@ export default function RelationshipMap({ chapter, revision }: { chapter: number
   return (
     <figure ref={board} className="relationship-map" data-entered={entered} aria-label="Interactive software relationship map">
       <figcaption className="map-heading">
-        <span>Relationship map</span>
+        <span className="map-caption-title"><i className="map-emblem" aria-hidden="true" />Software relationship map</span>
         <span className="map-example">Illustrative example</span>
       </figcaption>
       <div className="map-toolbar" role="group" aria-label="Map view">

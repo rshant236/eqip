@@ -217,7 +217,7 @@ export default function EstateScene() {
   }, []);
 
   return (
-    <div className="estate-visual">
+    <>
       <canvas ref={canvasRef} className="estate-scene" aria-hidden="true" />
       <button type="button" className="estate-motion" onClick={() => {
         pausedRef.current = !pausedRef.current;
@@ -227,6 +227,6 @@ export default function EstateScene() {
         <span className="motion-icon" data-paused={paused} aria-hidden="true" />
         {paused ? 'Play animation' : 'Pause animation'}
       </button>
-    </div>
+    </>
   );
 }
