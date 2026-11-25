@@ -67,7 +67,7 @@ export default function ChangeStory() {
           </li>
         ))}
       </ol>
-      <div id="change-map" className="story-board">
+      <div className="story-board">
         <RelationshipMap chapter={position.chapter} revision={position.revision} />
       </div>
     </div>

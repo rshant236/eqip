@@ -50,11 +50,11 @@ export const scenarios = [
 ];
 
 export const evidenceQuestions = [
-  { label: 'Understood', question: 'Which business journeys are understood' },
-  { label: 'Affected', question: 'Which systems and dependencies are affected' },
-  { label: 'Checked', question: 'What has been checked before a release or transition' },
-  { label: 'Open', question: 'Where risk remains and why' },
-  { label: 'Learned', question: 'What the organisation has learned for the next decision' },
+  'Which business journeys are understood',
+  'Which systems and dependencies are affected',
+  'What has been checked before a release or transition',
+  'Where risk remains and why',
+  'What the organisation has learned for the next decision',
 ];
 
 export const caseStudies = [
