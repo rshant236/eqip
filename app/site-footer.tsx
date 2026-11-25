@@ -7,7 +7,7 @@ export default function SiteFooter() {
         <div>
           <a href="/" className="wordmark" aria-label="EQIP home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/eqip-wordmark.png" alt="EQIP" width="88" height="21" loading="lazy" />
+            <img src="/eqip-logo.png" alt="EQIP Intelligent QA" width="195" height="139" loading="lazy" />
           </a>
           <p>EQIP helps organisations understand, preserve, validate, and continuously evolve their software with confidence.</p>
         </div>

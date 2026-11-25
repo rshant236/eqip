@@ -9,31 +9,27 @@ export const demoUrl = 'https://eqipqa.ai/#cta';
 
 export const outcomes = [
   {
-    name: 'Understand',
     title: 'Understand what you own',
     description: 'Surface the real behaviour, relationships, and hidden knowledge within complex applications.',
   },
   {
-    name: 'Preserve',
     title: 'Preserve what matters',
-    description: 'Protect the business logic and institutional memory that should stay with the software as it changes.',
+    description: 'Protect the business logic and institutional memory that should not be lost during change.',
   },
   {
-    name: 'Validate',
     title: 'Validate what changes',
-    description: 'Focus validation on the parts of the estate where confidence is most needed.',
+    description: 'Focus attention on the parts of the estate where confidence is most needed.',
   },
   {
-    name: 'Evolve',
     title: 'Evolve without blind spots',
-    description: 'Make modernisation, release, and investment decisions with a current view of how your software works.',
+    description: 'Make modernisation, releases, and investment decisions with a living view of software reality.',
   },
 ];
 
 export const scenarios = [
   {
     title: 'Modernisation and migration',
-    description: 'Move from legacy platforms while carrying critical business logic into the new system.',
+    description: 'Move from legacy platforms without leaving critical business logic behind.',
     question: 'Which business rules must survive the move?',
   },
   {
@@ -54,11 +50,11 @@ export const scenarios = [
 ];
 
 export const evidenceQuestions = [
-  { label: 'Understood', question: 'Which business journeys are understood?' },
-  { label: 'Affected', question: 'Which systems and dependencies are affected?' },
-  { label: 'Checked', question: 'What has been checked before release?' },
-  { label: 'Open', question: 'Where does risk remain, and why?' },
-  { label: 'Learned', question: 'What have we learned for the next decision?' },
+  { label: 'Understood', question: 'Which business journeys are understood' },
+  { label: 'Affected', question: 'Which systems and dependencies are affected' },
+  { label: 'Checked', question: 'What has been checked before a release or transition' },
+  { label: 'Open', question: 'Where risk remains and why' },
+  { label: 'Learned', question: 'What the organisation has learned for the next decision' },
 ];
 
 export const caseStudies = [
@@ -72,7 +68,7 @@ export const caseStudies = [
     title: 'Regulated industry release assurance',
     challenge: 'A high-impact release introduced change across customer, policy, and calculation workflows.',
     clarity: 'The team could connect requirements, application behaviour, and validation evidence in one view.',
-    outcome: 'Release conversations shifted from status reporting and opinion to decisions grounded in evidence.',
+    outcome: 'Release conversations shifted from opinion and status reporting to evidence and informed decision-making.',
   },
 ];
 
